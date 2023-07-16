@@ -16,7 +16,7 @@ def welcomeScreen(): #A simple welcomescreen
         time.sleep(0.1)
         welcome -= 1
 
-def selectFile(): #
+def selectFile(): #Let the user select a file to be feed
     pass
 
 def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
