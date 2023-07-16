@@ -5,10 +5,10 @@ import time
 file = None
 
 
-def clear():
+def clear(): #Clears the console
     os.system('clear')
 
-def welcomeScreen():
+def welcomeScreen(): #A simple welcomescreen
     clear()
     welcome = 20
     while welcome > 0:
@@ -16,16 +16,15 @@ def welcomeScreen():
         time.sleep(0.1)
         welcome -= 1
 
-def selectFile():
+def selectFile(): #
     pass
 
-def getFileSize(file = None):
+def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
     #fileSize = os.path.getsize(file)
     #return fileSize
     pass
 
-def FEED_ME(file):
+def FEED_ME(file): #Will make the file bigger with junk
     pass
 
 welcomeScreen()
-#test
