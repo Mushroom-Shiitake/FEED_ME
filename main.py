@@ -25,7 +25,7 @@ def selectFile(): #Let the user select a file to be feed
     Tk().withdraw()
     global filePath
     filePath = askopenfilename()
-    getFileSize(filePath)
+    return filePath
 
 
 def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
@@ -46,8 +46,9 @@ def setSize():
     print(f'Your file is  big...\nWhat size should it be?')#TODO: Set Variable
     global wishSize
     wishSize = input('Size (GB, MB, KB, B): ')
-    wishSize = wishSize.replace(' ', '')
+    wishSize = wishSize.replace(' ', '') #Delets all spaces from userinput
     print(wishSize)
+    return wishSize
 
 
 def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
@@ -55,4 +56,8 @@ def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
     feedFile.write(b'\x00')
 
 welcomeScreen()
-setSize()
+
+filePath = selectFile()
+fileSize = getFileSize(filePath)
+wishSize = setSize()
+print(filePath, fileSize, wishSize)
