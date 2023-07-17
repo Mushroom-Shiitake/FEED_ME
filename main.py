@@ -4,8 +4,10 @@ from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
 
+
 def clear(): #Clears the console
     os.system('clear')
+
 
 def welcomeScreen(): #A simple welcomescreen
     clear()
@@ -14,15 +16,19 @@ def welcomeScreen(): #A simple welcomescreen
         print('Hello my friend!')
         time.sleep(0.1)
         welcome -= 1
-    selectFile()
+
 
 def selectFile(): #Let the user select a file to be feed
     clear()
     print("Select your file...")
     time.sleep(2)
     Tk().withdraw()
+    global filePath
     filePath = askopenfilename()
     getFileSize(filePath)
+
+def setSize():
+    pass
 
 def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
     if file == None:
@@ -36,9 +42,17 @@ def getFileSize(file = None): #Gets the file size with the os.path.getsize funct
     except:
         print("An error occurred (Code: 1)")
 
-def FEED_ME(file): #Will make the file bigger with junk
-    pass
+
+def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
+    feedFile = open(file, "ab")
+    feedFile.write(b'\x00')
+
+    """
+    with open(f, 'wb') as binfile:
+    binfile.seek(625423968 - 1)
+    binfile.write(b'\x00')
+    """
+
 
 welcomeScreen()
-selectFile()
-
+FEED_ME("Test.txt")
