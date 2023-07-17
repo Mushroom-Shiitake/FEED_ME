@@ -1,8 +1,7 @@
 import os
 import time
-
-
-file = None
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
 
 def clear(): #Clears the console
@@ -17,7 +16,11 @@ def welcomeScreen(): #A simple welcomescreen
         welcome -= 1
 
 def selectFile(): #Let the user select a file to be feed
-    pass
+    clear()
+    print("Select your file...")
+    time.sleep(2)
+    Tk().withdraw()
+    filePath = askopenfilename()
 
 def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
     #fileSize = os.path.getsize(file)
@@ -28,3 +31,5 @@ def FEED_ME(file): #Will make the file bigger with junk
     pass
 
 welcomeScreen()
+selectFile()
+
