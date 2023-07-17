@@ -27,8 +27,6 @@ def selectFile(): #Let the user select a file to be feed
     filePath = askopenfilename()
     getFileSize(filePath)
 
-def setSize():
-    pass
 
 def getFileSize(file = None): #Gets the file size with the os.path.getsize function.
     if file == None:
@@ -43,10 +41,18 @@ def getFileSize(file = None): #Gets the file size with the os.path.getsize funct
         print("An error occurred (Code: 1)")
 
 
+def setSize():
+    clear()
+    print(f'Your file is  big...\nWhat size should it be?')#TODO: Set Variable
+    global wishSize
+    wishSize = input('Size (GB, MB, KB, B): ')
+    wishSize = wishSize.replace(' ', '')
+    print(wishSize)
+
+
 def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
     feedFile = open(file, "ab")
     feedFile.write(b'\x00')
 
-
 welcomeScreen()
-FEED_ME("Test.txt")
+setSize()
