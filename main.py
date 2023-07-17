@@ -47,12 +47,6 @@ def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
     feedFile = open(file, "ab")
     feedFile.write(b'\x00')
 
-    """
-    with open(f, 'wb') as binfile:
-    binfile.seek(625423968 - 1)
-    binfile.write(b'\x00')
-    """
-
 
 welcomeScreen()
 FEED_ME("Test.txt")
