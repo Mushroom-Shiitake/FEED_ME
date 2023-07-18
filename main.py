@@ -51,13 +51,15 @@ def setSize():
     return wishSize
 
 
-def FEED_ME(file = None): #Will make the file bigger with junk (zeroes)
-    feedFile = open(file, "ab")
-    feedFile.write(b'\x00')
+def FEED_ME(file = None, wishSize = None): #Will make the file bigger with junk (zeroes)
+    while getFileSize(file) != wishSize:
+        feedFile = open(file, "ab")
+        feedFile.write(b'\x00')
 
 welcomeScreen()
 
 filePath = selectFile()
 fileSize = getFileSize(filePath)
 wishSize = setSize()
-print(filePath, fileSize, wishSize)
+wishSize = int(wishSize)
+FEED_ME(filePath, wishSize)
