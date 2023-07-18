@@ -56,10 +56,11 @@ def FEED_ME(file = None, wishSize = None): #Will make the file bigger with junk 
         feedFile = open(file, "ab")
         feedFile.write(b'\x00')
 
-welcomeScreen()
+if __name__ == "__main__":
+    welcomeScreen()
 
-filePath = selectFile()
-fileSize = getFileSize(filePath)
-wishSize = setSize()
-wishSize = int(wishSize)
-FEED_ME(filePath, wishSize)
+    filePath = selectFile()
+    fileSize = getFileSize(filePath)
+    wishSize = setSize()
+    wishSize = int(wishSize)
+    FEED_ME(filePath, wishSize)
